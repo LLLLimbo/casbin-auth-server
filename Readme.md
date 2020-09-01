@@ -1,0 +1,3 @@
+使用Casbin实现的一个ABAC模型下访问控制的Demo。
+使用Mysql持久化存储Model和Policy,用Redis做缓存。
+
