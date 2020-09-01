@@ -1,0 +1,5 @@
+hangzhou,m1,/house/card,POST
+hangzhou,m2,/house/card,GET|POST|PUT
+shanghai,m1,/house/*,GET|POST|PUT
+shanghai,m2,/house/info,GET
+

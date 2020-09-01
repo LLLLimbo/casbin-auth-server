@@ -1,0 +1,16 @@
+CREATE DATABASE `casbin` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+create table casbin.casbin_model
+(
+    pid bigint auto_increment
+        primary key,
+    id varchar(32) not null,
+    model_status varchar(20) default 'INFORCE' null,
+    create_time datetime null,
+    modify_time datetime null,
+    model_def text null
+);
+
+create index casbin_model_id_index
+    on casbin.casbin_model (id);
+

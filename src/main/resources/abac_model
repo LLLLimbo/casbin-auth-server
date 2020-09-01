@@ -1,0 +1,11 @@
+[request_definition]
+r = unit, user, obj, act
+
+[policy_definition]
+p = unit, user, obj, act
+
+[policy_effect]
+e = some(where (p.eft == allow))
+
+[matchers]
+m = r.unit == p.unit  && r.user == p.user && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)

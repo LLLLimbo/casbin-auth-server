@@ -1,0 +1,66 @@
+###
+GET http://localhost:10219/auth/showModels
+
+###
+GET http://localhost:10219/auth/showPolicies
+
+###
+POST http://localhost:10219/auth/saveModel
+Content-Type: application/json
+
+{
+  "modelId":null,
+  "modelDef":"[request_definition]\nr = unit, user, obj, act\n\n[policy_definition]\np = unit, user, obj, act\n\n[policy_effect]\ne = some(where (p.eft == allow))\n\n[matchers]\nm = r.unit == p.unit  && r.user == p.user && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)",
+"modelStatus":null
+}
+
+###
+POST http://localhost:10219/auth/updateModelDef
+Content-Type: application/json
+
+{
+  "modelId":"3a55d96bd6a3463eb38aa9d1891ea607",
+  "modelDef":"[request_definition]\nr = unit, user, obj, act\n\n[policy_definition]\np = unit, user, obj, act\n\n[policy_effect]\ne = some(where (p.eft == allow))\n\n[matchers]\nm = r.unit == p.unit  && r.user == p.user && keyMatch(r.obj, p.obj) && regexMatch(r.act, p.act)",
+  "modelStatus":null
+}
+
+###
+POST http://localhost:10219/auth/updateModelStatus
+Content-Type: application/json
+
+{
+  "modelId":"3a55d96bd6a3463eb38aa9d1891ea607",
+  "modelDef":"",
+  "modelStatus":"INFORCE"
+}
+
+###
+POST http://localhost:10219/auth/savePolicy
+Content-Type: application/json
+
+{
+  "pType":"p",
+  "policy":"hangzhou,yunying,/house/card,GET|POST|PUT"
+}
+
+###
+POST http://localhost:10219/auth/removePolicy
+Content-Type: application/json
+
+{
+  "pType":"p",
+  "policy":"hangzhou,yunying,/house/card,GET|POST|PUT"
+}
+
+
+###
+POST http://localhost:10219/auth/ask
+Content-Type: application/json
+
+{
+  "modelId": "3a55d96bd6a3463eb38aa9d1891ea607",
+  "unit": "hangzhou",
+  "user": "m1",
+  "obj": "/house/card",
+  "act": "GET"
+}
